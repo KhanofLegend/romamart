@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* @import url(fontawesome-all.min.css); */
 <!-- Font Awesome CDN -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -6,9 +7,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @font-face {
     font-family: 'CocogooseProTrial';
     src: url('/fonts/CocogooseProTrial-Regular.woff2') format('woff2'),
@@ -109,7 +107,8 @@ input, select, textarea {
 	}
 
 	body {
-		background: #312450;
+		background-color: #151515; /* Dark */
+		color: #ffffff; /* White */
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -127,7 +126,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.55);
-		font-family: 'Inter', Arial,;
+		font-family: 'Inter', Ariel !important;
 		font-size: 16.5pt;
 		font-weight: normal;
 		line-height: 1.75;
@@ -166,13 +165,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
-		color: inherit;
+		color: #e4b340; /* Secondary */
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ffffff;
+			color: #020178; /* Primary */
 		}
 
 	strong, b {
@@ -189,7 +188,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: #ffffff; /* White */
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.5em 0;
@@ -1990,6 +1989,32 @@ input, select, textarea {
 					opacity: 0.1;
 				}
 
+/* Buttons */
+.button {
+    background-color: #e4b340; /* Secondary */
+    color: #151515; /* Dark */
+    border: 1px solid #e4b340;
+}
+
+.button:hover {
+    background-color: #020178; /* Primary */
+    color: #ffffff; /* White */
+    border-color: #020178;
+}
+
+/* Specific styles for "Get Directions 1" button */
+.button.get-directions-1 {
+    background-color: #020178; /* Primary */
+    color: #ffffff; /* White */
+    border: 1px solid #020178;
+}
+
+.button.get-directions-1:hover {
+    background-color: #e4b340; /* Secondary */
+    color: #151515; /* Dark */
+    border-color: #e4b340;
+}
+
 /* Features */
 
 	.features {
@@ -3254,7 +3279,8 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #5e42a6;
+			background-color: #020178; /* Primary */
+			color: #ffffff; /* White */
 		}
 
 		.wrapper.style1-alt {
@@ -3262,7 +3288,8 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: #5052b5;
+			background-color: #e4b340; /* Secondary */
+			color: #151515; /* Dark */
 		}
 
 		.wrapper.style2-alt {
@@ -3270,7 +3297,8 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: #242424; /* Light */
+			color: #ffffff; /* White */
 		}
 
 		.wrapper.style3-alt {
@@ -3517,6 +3545,11 @@ input, select, textarea {
 
 		}
 
+	#footer {
+		background-color: #242424; /* Light */
+		color: #ffffff; /* White */
+	}
+
 	#footer > .inner a {
 		border-bottom-color: rgba(255, 255, 255, 0.15);
 	}
@@ -3538,7 +3571,8 @@ input, select, textarea {
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: #312450;
+		background-color: #151515; /* Dark */
+		color: #ffffff; /* White */
 		cursor: default;
 		height: 100vh;
 		left: 0;
@@ -3751,7 +3785,7 @@ input, select, textarea {
 			-ms-transition: color 0.2s ease;
 			transition: color 0.2s ease;
 			border: 0;
-			color: rgba(255, 255, 255, 0.35);
+			color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
 			display: block;
 			font-size: 0.6em;
 			font-weight: bold;
@@ -3791,7 +3825,7 @@ input, select, textarea {
 			}
 
 			#sidebar nav a:hover {
-				color: rgba(255, 255, 255, 0.55);
+				color: #e4b340; /* Secondary */
 			}
 
 			#sidebar nav a.active {
@@ -3921,3 +3955,21 @@ input, select, textarea {
 			}
 
 		}
+
+/* Center the first section */
+#intro .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%; /* Ensure it takes up the full height of the section */
+}
+
+/* Apply Cocogoose font to the title */
+#intro h1 {
+    font-family: 'CocogooseProTrial', sans-serif;
+    font-weight: regular;
+    font-size: 3em; /* Adjust size as needed */
+    color: #ffffff; /* Ensure it contrasts well with the background */
+}
