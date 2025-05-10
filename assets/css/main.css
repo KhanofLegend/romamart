@@ -3504,6 +3504,27 @@ input, select, textarea {
 
 		}
 
+/* Apply Cocogoose font to the header title */
+#header .title {
+    font-family: 'CocogooseProTrial', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em; /* Adjust size as needed */
+    color: #ffffff; /* Ensure it contrasts well with the background */
+    text-decoration: none; /* Remove underline if present */
+}
+
+/* Logo styles */
+.logo-container {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.logo {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+    display: inline-block;
+}
+
 /* Wrapper (main) */
 
 	#sidebar + #wrapper {
@@ -3548,6 +3569,8 @@ input, select, textarea {
 	#footer {
 		background-color: #242424; /* Light */
 		color: #ffffff; /* White */
+		text-align: center;
+		padding: 2em 0; /* Add some padding for spacing */
 	}
 
 	#footer > .inner a {
@@ -3561,6 +3584,22 @@ input, select, textarea {
 	#footer > .inner .menu {
 		font-size: 0.8em;
 		color: rgba(255, 255, 255, 0.15);
+	}
+
+	#footer > .inner .menu {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline-block; /* Center the menu items */
+	}
+
+	#footer > .inner .menu li {
+		display: inline;
+		margin: 0 1em; /* Add spacing between menu items */
+	}
+
+	#footer .logo-container {
+		margin-bottom: 1em; /* Add spacing below the logo */
 	}
 
 	#header + #wrapper + #footer > .inner {
