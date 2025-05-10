@@ -6,11 +6,13 @@
 -->
 <html>
 	<head>
-		<title>Hyperspace by HTML5 UP</title>
+		<title>Roma Mart Convenience</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Font Awesome CDN -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	</head>
 	<body class="is-preload">
 
@@ -19,10 +21,10 @@
 				<div class="inner">
 					<nav>
 						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Who we are</a></li>
-							<li><a href="#two">What we do</a></li>
-							<li><a href="#three">Get in touch</a></li>
+							<li><a href="#intro"><i class="fa-solid fa-house"></i> Welcome</a></li>
+							<li><a href="#one"><i class="fa-solid fa-location-pin"></i> Our Locations</a></li>
+							<li><a href="#two"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+							<li><a href="#three"><i class="fa-solid fa-phone"></i> Get in Touch</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -34,11 +36,11 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<h1>Hyperspace</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
+							<h1>Roma Mart Convenience</h1>
+							<p>A community-first c-store in Sarnia, Ontario<br />
+							Coming Soon!</p>
 							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
+								<li><a href="#" class="button scrolly">Order Online</a></li> <!-- change # with link for POS ordering system -->
 							</ul>
 						</div>
 					</section>
@@ -46,38 +48,38 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+							<a href="#" class="image"><img src="images/brand_signboard.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Sed ipsum dolor</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
+									<h2><i class="fa-solid fa-map-marker-alt"></i> 189-3 Wellington Street, Sarnia, ON</h2>
+									<p>Our first convenience store location! Currently under renovation.</p>
+									<!-- Directions Button with Place ID and Fallback to Google Maps -->
+										<ul class="actions">
+											<li>
+												<a href="#" class="button" onclick="openDirections()">Get Directions</a>
+											</li>
+										</ul>
+									<script>
+										function openDirections() {
+											// Try to open the default map app first
+											var geoLink = 'geo:42.9685845,-82.4078779?q=42.9685845,-82.4078779';
+											var googleMapsLink = 'https://www.google.com/maps/place/?q=place_id:ChIJCfo3t6SdJYgRIQVbpCppKmY';
+											
+											// Create an invisible iframe to try opening the geo link
+											var iframe = document.createElement('iframe');
+											iframe.style.display = 'none';
+											iframe.src = geoLink;
+											document.body.appendChild(iframe);
+
+											// After a short delay, if the first action doesn't open the default map, open Google Maps
+											setTimeout(function() {
+												// If the geo link didn't open anything, fallback to Google Maps
+												window.open(googleMapsLink, '_blank');
+												// Remove the iframe after the delay
+												document.body.removeChild(iframe);
+											}, 500); // Short delay to allow time for default map app to respond
+										}
+									</script>
 								</div>
 							</div>
 						</section>
@@ -86,43 +88,41 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>About Us</h2>
+							<p>Roma Mart Convenience is your local one-stop shop for everything you need — from daily essentials to special treats. We’re here to serve our community with a smile, 7 days a week.</p>
 							<div class="features">
 								<section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-cart-shopping"></span>
+									<h3>Grocery Essentials 🛒</h3>
+									<p>Stocked with everyday must-haves — milk, bread, snacks, beverages, pantry staples — all just around the corner.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-mug-hot"></span>
+									<h3>Café ☕</h3>
+									<p>Grab a fresh cup of coffee, tea, bubble tea, or matcha — perfect for your morning stop or afternoon pick-me-up. Discover tasty snacks and quick bites made for life on the go.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-credit-card"></span>
+									<h3>ATM + BTM (coming soon!) 🏧</h3>
+									<p>Need quick cash? Our in-store ATM is always ready, with secure and easy access whenever you need it. A Bitcoin/crypto machine is on the way for even more convenience.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-ticket"></span>
+									<h3>Lottery 🎫</h3>
+									<p>Feeling lucky? We’ve got your favorite lottery tickets and scratch-offs — available right at the counter for our adult customers.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-globe"></span>
+									<h3>International Products 🌍</h3>
+									<p>Taste the world! From spices to snacks, we carry a unique mix of global favorites you won’t find everywhere.</p>
 								</section>
 								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-solid fa-smoking"></span>
+									<h3>Tobacco 🚬</h3>
+									<p>We are licensed to offer a variety of tobacco products and accessories, all stocked responsibly for our adult customers.</p>
 								</section>
 							</div>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn more</a></li>
-							</ul>
+							
 						</div>
 					</section>
 
@@ -130,7 +130,7 @@
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<p>Have a question or suggestion? Want to collaborate or supply your product at Roma Mart? We'd love to hear from you.</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="#">
@@ -156,42 +156,54 @@
 								<section>
 									<ul class="contact">
 										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
+											<h3><i class="fa-solid fa-map-marker-alt"></i> Address</h3>
+											<a href="geo:0,0?q=189-3 Wellington Street, Sarnia, ON N7T 1G6, Canada"
+											onclick="window.open('https://www.google.com/maps/search/?api=1&query=42.9685845%2C-82.4078779&query_place_id=ChIJCfo3t6SdJYgRIQVbpCppKmY', '_blank'); return false;">
+											189-3 Wellington Street<br />
+											Sarnia, ON N7T 1G6<br />
+											Canada
+										</a>
 										</li>
 										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
+											<h3><i class="fa-solid fa-envelope"></i> Email</h3>
+											<a href="mailto:contact@romamart.ca">contact@romamart.ca</a>
 										</li>
 										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
+											<h3><i class="fa-solid fa-phone"></i> Phone</h3>
+											<a href="tel:+13823422000">+1 (382) 342-2000</a>
 										</li>
 										<li>
-											<h3>Social</h3>
+											<h3><i class="fa-solid fa-hashtag"></i> Social</h3>
 											<ul class="icons">
-												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-x-twitter"><span class="label">X</span></a></li>
 												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
+												<li><a href="#" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+											   <li><a href="#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+											</li>
 									</ul>
 								</section>
 							</div>
+							<div class="map-container" style="margin-top: 2em;">
+  								  <iframe 
+  						    	  	src="https://storage.googleapis.com/maps-solutions-t1dl2xqypo/locator-plus/98rg/locator-plus.html"
+     								width="100%" 
+   						   			height="400" 
+       								style="border:0;" 
+        							loading="lazy" 
+        							allowfullscreen>
+    							</iframe>
+							</div>
 						</div>
 					</section>
-
 			</div>
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; 2025 Roma Mart Convenience. All rights reserved.</li>
+   						<li><a href="http://html5up.net"><i class="fa-solid fa-link"></i> Design: HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
