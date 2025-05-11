@@ -108,7 +108,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function getSidebarContent() {
     // Get the current page's filename
-    const page = window.location.pathname.split('/').pop();
+    let page = window.location.pathname.split('/').pop();
+
+    // Debugging: Log the page value to check what is being detected
+    console.log('Detected page:', page);
+
+    // If the page is empty (e.g., accessing the root directory), default to 'index.html'
+    if (!page || page === '') {
+        page = 'index.html';
+    }
 
     // Define sidebar content for each page
     const sidebars = {
