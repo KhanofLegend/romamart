@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.style.width = '18em';
             sidebar.style.height = '100vh';
             sidebar.style.display = 'block';
+            sidebar.style.transform = 'none';
+            sidebar.style.opacity = '1';
             overlay.classList.remove('active');
         } else if (screenWidth >= 737 && screenWidth <= 1280) {
             // Medium screens: Sidebar on top
@@ -27,9 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.style.width = '100%';
             sidebar.style.height = 'auto';
             sidebar.style.display = 'block';
+            sidebar.style.transform = 'none';
+            sidebar.style.opacity = '1';
             overlay.classList.remove('active');
         } else {
             // Small screens: Sidebar hidden, toggled by button
+            sidebar.style.position = 'fixed';
+            sidebar.style.left = '0';
+            sidebar.style.top = '0';
+            sidebar.style.width = '100%';
+            sidebar.style.height = 'auto';
+            sidebar.style.transform = 'translateY(-100%)';
+            sidebar.style.opacity = '0';
             sidebar.style.display = 'none';
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
@@ -38,12 +49,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Toggle sidebar and overlay visibility for small screens
     menuButton.addEventListener('click', function () {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        if (sidebar.classList.contains('active')) {
-            sidebar.style.display = 'block';
+        const isActive = sidebar.classList.contains('active');
+        if (isActive) {
+            // Hide sidebar
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            sidebar.style.transform = 'translateY(-100%)';
+            sidebar.style.opacity = '0';
+            setTimeout(() => {
+                sidebar.style.display = 'none';
+            }, 300); // Match the CSS transition duration
         } else {
-            sidebar.style.display = 'none';
+            // Show sidebar
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            sidebar.style.display = 'block';
+            setTimeout(() => {
+                sidebar.style.transform = 'translateY(0)';
+                sidebar.style.opacity = '1';
+            }, 10); // Slight delay to trigger the transition
         }
     });
 
@@ -51,7 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.addEventListener('click', function () {
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
-        sidebar.style.display = 'none';
+        sidebar.style.transform = 'translateY(-100%)';
+        sidebar.style.opacity = '0';
+        setTimeout(() => {
+            sidebar.style.display = 'none';
+        }, 300); // Match the CSS transition duration
+    });
+
+    // Close sidebar when scrolling
+    document.addEventListener('scroll', function () {
+        if (sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            sidebar.style.transform = 'translateY(-100%)';
+            sidebar.style.opacity = '0';
+            setTimeout(() => {
+                sidebar.style.display = 'none';
+            }, 300); // Match the CSS transition duration
+        }
     });
 
     // Adjust sidebar layout on window resize

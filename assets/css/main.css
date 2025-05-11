@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* @import url(fontawesome-all.min.css); */
-<!-- Font Awesome CDN -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+/* Font Awesome CDN */
 /*
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
@@ -126,13 +125,13 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.55);
-		font-family: 'Inter', Ariel !important;
+		font-family: 'Inter', Arial, sans-serif !important;
 		font-size: 16.5pt;
 		font-weight: normal;
 		line-height: 1.75;
 	}
 	.logo, .webmark {
-    font-family: 'Cocogoose', sans-serif;
+    font-family: 'CocogooseProTrial', sans-serif;
     font-weight: bold;
 	}
 		@media screen and (max-width: 1680px) {
@@ -3713,36 +3712,29 @@ input, select, textarea {
     }
 }
 
-/* Sidebar for small screens (when toggled) */
+/* Sidebar for small screens (floating top bar) */
 @media screen and (max-width: 736px) {
     #sidebar {
         display: none; /* Hidden by default */
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100vh;
+        width: 100%; /* Full width for the top bar */
+        height: auto; /* Adjust height based on content */
         background-color: #151515; /* Dark */
         color: #ffffff; /* White */
         z-index: 10000;
-        overflow-y: auto;
+        overflow-y: auto; /* Allow scrolling if content overflows */
         text-align: center; /* Center-align text */
-        display: flex;
-        flex-direction: column; /* Stack content vertically */
-        align-items: center; /* Center-align items horizontally */
-        justify-content: center; /* Center-align items vertically */
-        padding: 1em;
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth slide-in and fade-in effect */
+        transform: translateY(-100%); /* Initially hidden off-screen */
+        opacity: 0; /* Initially invisible */
     }
 
     #sidebar.active {
-        display: flex; /* Show the sidebar when toggled */
-    }
-
-    #sidebar .logo-container {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Center the logo */
-        margin-bottom: 1em; /* Add spacing below the logo */
+        display: block;
+        transform: translateY(0); /* Slide in from the top */
+        opacity: 1; /* Make it visible */
     }
 
     #sidebar nav {
@@ -3750,13 +3742,96 @@ input, select, textarea {
         flex-direction: column; /* Stack navigation items vertically */
         align-items: center; /* Center-align navigation items */
         justify-content: center; /* Center-align navigation items */
-        width: 100%; /* Ensure nav takes full width */
+        padding: 1em;
+    }
+
+    #sidebar .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1em; /* Add spacing below the logo */
     }
 
     #sidebar .logo {
         max-height: 3em; /* Ensure the logo fits within the sidebar height */
         height: auto;
         margin-bottom: 1em; /* Add spacing below the logo */
+    }
+
+    #sidebar-overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        z-index: 9999;
+        opacity: 0; /* Initially invisible */
+        transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    }
+
+    #sidebar-overlay.active {
+        display: block;
+        opacity: 1; /* Make it visible */
+    }
+
+    #wrapper, #header, #footer {
+        margin-top: 0; /* Reset margins when sidebar is hidden */
+    }
+
+    #sidebar.active + #wrapper,
+    #sidebar.active + #header,
+    #sidebar.active + #footer {
+        margin-top: 3.5em; /* Push content down when sidebar is active */
+    }
+}
+
+/* Sidebar for small screens (when toggled) */
+@media screen and (max-width: 736px) {
+    #sidebar {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 18em; /* Sidebar width */
+        height: 100vh;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-y: auto;
+        text-align: left;
+        transition: transform 0.3s ease; /* Smooth slide-in effect */
+        transform: translateX(-100%); /* Initially hidden off-screen */
+    }
+
+    #sidebar.active {
+        display: block;
+        transform: translateX(0); /* Slide in from the left */
+    }
+
+    #wrapper {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #header {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #footer {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #sidebar.active + #wrapper {
+        margin-left: 18em; /* Shift content to the right when sidebar is active */
+    }
+
+    #sidebar.active + #header {
+        margin-left: 18em; /* Shift header to the right when sidebar is active */
+    }
+
+    #sidebar.active + #footer {
+        margin-left: 18em; /* Shift footer to the right when sidebar is active */
     }
 }
 
@@ -4352,4 +4427,87 @@ input, select, textarea {
     font-weight: regular;
     font-size: 3em; /* Adjust size as needed */
     color: #ffffff; /* Ensure it contrasts well with the background */
+}
+
+/* General layout adjustments */
+#header, #footer, #wrapper {
+    transition: margin 0.3s ease; /* Smooth transition for layout changes */
+}
+
+/* Sidebar on the left (large screens) */
+@media screen and (min-width: 1281px) {
+    #wrapper {
+        margin-left: 18em; /* Shift page content to the right */
+    }
+
+    #header {
+        margin-left: 18em; /* Shift header to the right */
+    }
+
+    #footer {
+        margin-left: 18em; /* Shift footer to the right */
+    }
+}
+
+/* Sidebar on the top (medium screens) */
+@media screen and (max-width: 1280px) and (min-width: 737px) {
+    #wrapper {
+        margin-top: 3.5em; /* Shift page content down */
+    }
+
+    #header {
+        margin-top: 3.5em; /* Shift header down */
+    }
+
+    #footer {
+        margin-top: 3.5em; /* Shift footer down */
+    }
+}
+
+/* Sidebar toggled on small screens */
+@media screen and (max-width: 736px) {
+    #sidebar {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 18em; /* Sidebar width */
+        height: 100vh;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-y: auto;
+        text-align: left;
+        transition: transform 0.3s ease; /* Smooth slide-in effect */
+        transform: translateX(-100%); /* Initially hidden off-screen */
+    }
+
+    #sidebar.active {
+        display: block;
+        transform: translateX(0); /* Slide in from the left */
+    }
+
+    #wrapper {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #header {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #footer {
+        margin-left: 0; /* Reset margin for small screens */
+    }
+
+    #sidebar.active + #wrapper {
+        margin-left: 18em; /* Shift content to the right when sidebar is active */
+    }
+
+    #sidebar.active + #header {
+        margin-left: 18em; /* Shift header to the right when sidebar is active */
+    }
+
+    #sidebar.active + #footer {
+        margin-left: 18em; /* Shift footer to the right when sidebar is active */
+    }
 }
