@@ -3525,6 +3525,59 @@ input, select, textarea {
     display: inline-block;
 }
 
+/* Sidebar logo styles */
+.logo-container .logo {
+    max-width: 150px; /* Default size for larger screens */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the logo */
+}
+
+/* Adjust sidebar logo for medium screens */
+@media screen and (max-width: 1280px) {
+    #sidebar {
+        height: 3.5em; /* Adjust height for horizontal layout */
+        padding: 0.5em 1em; /* Add padding for spacing */
+        text-align: left; /* Align content to the left */
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Vertically center the content */
+    }
+
+    #sidebar .logo-container {
+        text-align: left; /* Align logo to the left */
+        margin: 0; /* Remove bottom margin */
+        height: 100%; /* Ensure the container matches the sidebar height */
+    }
+
+    #sidebar .logo {
+        max-height: 2.5em; /* Ensure the logo fits within the sidebar height */
+        max-width: auto; /* Maintain aspect ratio */
+        height: auto; /* Scale dynamically */
+        display: inline-block; /* Inline with navigation */
+        vertical-align: middle; /* Align vertically */
+    }
+
+    #sidebar nav {
+        display: inline-block; /* Place navigation inline with the logo */
+        vertical-align: middle; /* Align navigation vertically */
+        margin-left: 1em; /* Add spacing between logo and navigation */
+    }
+}
+
+/* Adjust sidebar logo for small screens */
+@media screen and (max-width: 736px) {
+    #sidebar .logo {
+        max-height: 2em; /* Further reduce size for smaller screens */
+    }
+}
+
+/* Adjust sidebar logo for very small screens */
+@media screen and (max-width: 480px) {
+    #sidebar .logo {
+        max-height: 1.5em; /* Resize for very small screens */
+    }
+}
+
 /* Wrapper (main) */
 
 	#sidebar + #wrapper {
@@ -3605,6 +3658,35 @@ input, select, textarea {
 	#header + #wrapper + #footer > .inner {
 		margin: 0 auto;
 	}
+
+/* Footer logo styles */
+#footer .logo-container .logo {
+    max-width: 200px; /* Default size for larger screens */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the logo */
+}
+
+/* Adjust footer logo for medium screens */
+@media screen and (max-width: 1280px) {
+    #footer .logo-container .logo {
+        max-width: 150px; /* Resize for medium screens */
+    }
+}
+
+/* Adjust footer logo for small screens */
+@media screen and (max-width: 736px) {
+    #footer .logo-container .logo {
+        max-width: 120px; /* Resize for smaller screens */
+    }
+}
+
+/* Adjust footer logo for very small screens */
+@media screen and (max-width: 480px) {
+    #footer .logo-container .logo {
+        max-width: 100px; /* Resize for very small screens */
+    }
+}
 
 /* Sidebar */
 
