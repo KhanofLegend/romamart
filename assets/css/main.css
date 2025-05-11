@@ -3306,8 +3306,11 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #020178; /* Primary */
-			color: #ffffff; /* White */
+			background-image: url('../assets/images/pattern.jpg'); /* Replace with your image path */
+			background-size: cover; /* Ensure the image covers the entire section */
+			background-position: center; /* Center the image */
+			background-repeat: no-repeat; /* Prevent tiling */
+			color: #ffffff; /* White text for contrast */
 		}
 
 		.wrapper.style1-alt {
