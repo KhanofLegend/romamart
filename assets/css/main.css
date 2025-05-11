@@ -2279,7 +2279,7 @@ input, select, textarea {
 	form {
 		margin: 0 0 2em 0;
 	}
-		}
+		
 
 			form > .fields > .field {
 				-moz-flex-grow: 0;
@@ -3103,6 +3103,7 @@ input, select, textarea {
 			justify-content: center;
 			width: 50em;
 			-ms-flex: 1;
+			flex: 1;
 		}
 
 			.spotlights > section > .content > .inner {
