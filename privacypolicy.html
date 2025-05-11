@@ -13,6 +13,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N4FWPSRF');</script>
 <!-- End Google Tag Manager -->
+ <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		<title>Privacy Policy - Roma Mart</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -29,7 +31,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-		<!-- Header -->
+		<!-- Header deprecated
 			<header id="header">
 				<a href="index.html" class="title">
 					<img src="../assets/images/logo_primary.jpg" alt="Roma Mart Logo" class="logo" />
@@ -42,25 +44,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<li><a href="privacypolicy.html" class="active">Privacy Policy</a></li>
 					</ul>
 				</nav>
-			</header>
-<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<!-- Add the logo -->
-					<div class="logo-container">
-						<a href="index.html">
-							<img src="../assets/images/logo_primary.jpg" alt="Roma Mart Logo" class="logo" />
-						</a>
-					</div>
-					<nav>
-						<ul>
-							<li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-							<li><a href="blogpage.html"><i class="fa-solid fa-newspaper"></i> Updates</a></li>
-							<li><a href="index.html#three"><i class="fa-solid fa-phone"></i> Get in Touch</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+			</header>  -->
+<!-- Sidebar  -->
+ <div id="sidebar"></div>
+<!-- Sidebar Overlay -->
+<div id="sidebar-overlay"></div>
+<!-- Menu Button -->
+<div id="menu-button">
+    <img src="../assets/images/apple-touch-icon.png" alt="Logo" class="menu-logo" />
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>			
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -69,8 +66,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Privacy Policy</h1>
-							<span class="image fit"><img src="images/privacy.jpg" alt="" /></span>
-							<p>Roma Mart Corp., Roma Mart Convenience values your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you interact with us.</p>
+							<span class="icon fit"><i class="fa-solid fa-shield-halved"></i></span>
+							<p>We at Roma Mart Corp., Roma Mart Convenience value your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you interact with us.</p>
 							<h2>1. Information We Collect</h2>
 							<ul>
 								<li><strong>Personal Information:</strong> Name, email address, phone number (when submitted via contact forms or direct communication).</li>
@@ -123,6 +120,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="assets/js/sidebar.js"></script>
 	</body>
 </html>

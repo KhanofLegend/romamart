@@ -2259,27 +2259,27 @@ input, select, textarea {
 
 		}
 
+/* Ensure images in spotlights are properly sized */
+.wrapper.style2 .spotlights .image {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    overflow: hidden; /* Hide any overflow */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.wrapper.style2 .spotlights .image img {
+    width: 100%; /* Make the image responsive */
+    height: 100%; /* Fill the container */
+    object-fit: contain; /* Ensure the entire image is displayed */
+    object-position: center; /* Center the image within the container */
+}
+
 /* Form */
 
 	form {
 		margin: 0 0 2em 0;
 	}
-
-		form > :last-child {
-			margin-bottom: 0;
-		}
-
-		form > .fields {
-			display: -moz-flex;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: flex;
-			-moz-flex-wrap: wrap;
-			-webkit-flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-			width: calc(100% + 3em);
-			margin: -1.5em 0 2em -1.5em;
 		}
 
 			form > .fields > .field {
@@ -2520,6 +2520,22 @@ input, select, textarea {
 		color: rgba(255, 255, 255, 0.35) !important;
 		opacity: 1.0;
 	}
+
+/* Increase spacing between the message field and the submit button */
+#three .fields .actions {
+    margin-top: 1.5em; /* Adjust the value as needed */
+}
+
+/* Reduce spacing between labels and input fields */
+#three .fields .field label {
+    margin-bottom: 0.5em; /* Reduce the space below the label */
+    display: block; /* Ensure the label stays above the input */
+}
+
+#three .fields .field input,
+#three .fields .field textarea {
+    margin-top: 0; /* Remove extra space above the input/textarea */
+}
 
 /* Icon */
 
@@ -3170,6 +3186,15 @@ input, select, textarea {
 
 		}
 
+/* Ensure images in spotlights are properly sized */
+.wrapper.style2 .spotlights .image img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Optional: Limit the maximum height */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
 /* Table */
 
 	.table-wrapper {
@@ -3536,31 +3561,45 @@ input, select, textarea {
 /* Adjust sidebar logo for medium screens */
 @media screen and (max-width: 1280px) {
     #sidebar {
-        height: 3.5em; /* Adjust height for horizontal layout */
-        padding: 0.5em 1em; /* Add padding for spacing */
-        text-align: left; /* Align content to the left */
         display: flex; /* Use flexbox for alignment */
         align-items: center; /* Vertically center the content */
+        justify-content: flex-start; /* Align logo and navigation to the left */
+        padding: 0.5em 1em; /* Add padding for spacing */
+        background-color: #151515; /* Ensure background is visible */
+        z-index: 10000; /* Ensure it stays on top */
+        overflow: visible; /* Ensure content is not clipped */
+        height: 3.5em; /* Set a fixed height for the top bar */
+        position: fixed; /* Keep the top bar fixed at the top */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width for the top bar */
     }
 
     #sidebar .logo-container {
-        text-align: left; /* Align logo to the left */
-        margin: 0; /* Remove bottom margin */
-        height: 100%; /* Ensure the container matches the sidebar height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* Match the sidebar height */
+        width: auto; /* Allow the logo container to shrink to fit */
+        margin-right: 0.5em; /* Add spacing between the logo and text */
     }
 
     #sidebar .logo {
         max-height: 2.5em; /* Ensure the logo fits within the sidebar height */
-        max-width: auto; /* Maintain aspect ratio */
-        height: auto; /* Scale dynamically */
-        display: inline-block; /* Inline with navigation */
-        vertical-align: middle; /* Align vertically */
+        height: auto;
+        display: inline-block;
+        margin: 0; /* Remove centering margin */
     }
 
     #sidebar nav {
-        display: inline-block; /* Place navigation inline with the logo */
-        vertical-align: middle; /* Align navigation vertically */
-        margin-left: 1em; /* Add spacing between logo and navigation */
+        display: flex; /* Ensure navigation is inline */
+        align-items: center; /* Vertically center navigation */
+        height: 100%; /* Match the sidebar height */
+        padding: 0; /* Remove extra padding */
+    }
+
+    #wrapper, header {
+        margin-top: 3.7em; /* Push the content down by the height of the top bar */
     }
 }
 
@@ -3576,6 +3615,180 @@ input, select, textarea {
     #sidebar .logo {
         max-height: 1.5em; /* Resize for very small screens */
     }
+}
+
+/* Sidebar styles for larger screens */
+@media screen and (min-width: 1281px) {
+    #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 18em;
+        height: 100vh;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-y: auto;
+        text-align: right;
+        display: block;
+    }
+
+    #wrapper {
+        margin-left: 18em;
+    }
+}
+
+/* Sidebar for larger screens */
+@media screen and (min-width: 1281px) {
+    #sidebar {
+        display: block; /* Ensure the sidebar is visible */
+    }
+}
+
+/* Sidebar for medium screens */
+@media screen and (max-width: 1280px) and (min-width: 737px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: center; /* Center-align text */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center-align items horizontally */
+        justify-content: center; /* Center-align items vertically */
+        padding: 1em;
+    }
+
+    #sidebar .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the logo */
+        margin-bottom: 1em; /* Add spacing below the logo */
+    }
+
+    #sidebar nav {
+        display: flex;
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center-align navigation items */
+        justify-content: center; /* Center-align navigation items */
+        width: 100%; /* Ensure nav takes full width */
+    }
+
+    #sidebar .logo {
+        max-height: 2.5em; /* Ensure the logo fits within the sidebar height */
+        height: auto;
+        margin-bottom: 1em; /* Add spacing below the logo */
+    }
+}
+
+/* Sidebar styles for smaller screens */
+@media screen and (max-width: 1280px) and (min-width: 737px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 1em;
+    }
+
+    #wrapper {
+        margin-left: 0;
+    }
+}
+
+/* Sidebar for small screens (when toggled) */
+@media screen and (max-width: 736px) {
+    #sidebar {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #151515; /* Dark */
+        color: #ffffff; /* White */
+        z-index: 10000;
+        overflow-y: auto;
+        text-align: center; /* Center-align text */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center-align items horizontally */
+        justify-content: center; /* Center-align items vertically */
+        padding: 1em;
+    }
+
+    #sidebar.active {
+        display: flex; /* Show the sidebar when toggled */
+    }
+
+    #sidebar .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the logo */
+        margin-bottom: 1em; /* Add spacing below the logo */
+    }
+
+    #sidebar nav {
+        display: flex;
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center-align navigation items */
+        justify-content: center; /* Center-align navigation items */
+        width: 100%; /* Ensure nav takes full width */
+    }
+
+    #sidebar .logo {
+        max-height: 3em; /* Ensure the logo fits within the sidebar height */
+        height: auto;
+        margin-bottom: 1em; /* Add spacing below the logo */
+    }
+}
+
+/* Sidebar default styles */
+#sidebar {
+    background-color: #151515; /* Dark */
+    color: #ffffff; /* White */
+    z-index: 10000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+/* Sidebar overlay */
+#sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+
+/* Active overlay */
+#sidebar-overlay.active {
+    display: block;
+}
+
+/* Sidebar active state for small screens */
+#sidebar.active {
+    display: block;
 }
 
 /* Wrapper (main) */
@@ -3972,61 +4185,65 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			#sidebar {
-				height: 3.5em;
+				height: auto; /* Allow the sidebar to expand based on content */
 				left: 0;
-				line-height: 3.5em;
-				overflow: hidden;
-				padding: 0;
-				text-align: center;
 				top: 0;
 				width: 100%;
+				display: flex; /* Use flexbox for alignment */
+				align-items: center; /* Vertically center the content */
+				justify-content: flex-start; /* Align logo and navigation to the left */
+				padding: 0.5em 1em; /* Add padding for spacing */
+				background-color: #151515; /* Ensure background is visible */
+				z-index: 10000; /* Ensure it stays on top */
+				overflow: visible; /* Ensure content is not clipped */
 			}
 
 				#sidebar > .inner {
-					-moz-flex-direction: row;
-					-webkit-flex-direction: row;
-					-ms-flex-direction: row;
-					flex-direction: row;
-					-moz-align-items: -moz-stretch;
-					-webkit-align-items: -webkit-stretch;
-					-ms-align-items: -ms-stretch;
-					align-items: stretch;
-					height: inherit;
-					line-height: inherit;
+					display: flex; /* Ensure content is laid out horizontally */
+					align-items: center; /* Vertically center content */
+					justify-content: space-between; /* Space out logo and navigation */
+					width: 100%;
 				}
 
 				#sidebar nav {
-					height: inherit;
-					line-height: inherit;
+					display: flex; /* Ensure navigation is inline */
+					align-items: center; /* Vertically center navigation */
+					height: auto; /* Allow navigation to expand */
+					margin-left: auto; /* Push navigation links to the right */
 				}
 
 					#sidebar nav ul {
-						display: -moz-flex;
-						display: -webkit-flex;
-						display: -ms-flex;
-						display: flex;
-						height: inherit;
-						line-height: inherit;
+						display: flex; /* Horizontal layout for links */
 						margin: 0;
+						padding: 0;
+						list-style: none;
+						gap: 1em; /* Add spacing between links for better layout */
 					}
 
 						#sidebar nav ul li {
-							display: block;
-							height: inherit;
-							line-height: inherit;
-							margin: 0 0 0 2em;
+							margin: 0; /* Remove extra margin */
 							padding: 0;
+							height: auto; /* Allow links to expand */
+							display: flex;
+							align-items: center; /* Vertically center links */
 						}
 
 					#sidebar nav a {
-						height: inherit;
-						line-height: inherit;
-						padding: 0;
+						color: rgba(255, 255, 255, 0.7); /* Ensure links are visible */
+						font-size: 0.7em; /* Reduce font size for better fit */
+						letter-spacing: 0.15em; /* Adjust letter spacing for readability */
+						text-decoration: none;
+						text-transform: uppercase;
+						padding: 0.3em 0; /* Reduce padding to save space */
+						display: inline-block;
 					}
 
-						#sidebar nav a:after {
-							background-image: none;
-							background-color: #b74e91;
+						#sidebar nav a:hover {
+							color: #e4b340; /* Highlight on hover */
+						}
+
+						#sidebar nav a.active {
+							color: #ffffff; /* Ensure active link is clearly visible */
 						}
 
 		}
@@ -4038,6 +4255,48 @@ input, select, textarea {
 			}
 
 		}
+
+/* Menu Button Styles */
+#menu-button {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 10001;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: #151515; /* Match sidebar background */
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#menu-button .menu-logo {
+    max-height: 2em;
+    margin-right: 0.5em;
+}
+
+#menu-button .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+#menu-button .hamburger span {
+    display: block;
+    width: 1.5em;
+    height: 0.2em;
+    background-color: #ffffff; /* White lines for the hamburger */
+    border-radius: 0.1em;
+}
+
+/* Show the menu button on small screens */
+@media screen and (max-width: 736px) {
+    #menu-button {
+        display: flex; /* Show the menu button */
+    }
+}
 
 /* Intro */
 

@@ -13,6 +13,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N4FWPSRF');</script>
 <!-- End Google Tag Manager -->
+ <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <script defer data-cfasync='false' src='https://s.clickiocdn.com/t/243023_wv.js'></script>
 		<title>Updates - Roma Mart</title>
 		<meta charset="utf-8" />
@@ -29,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4FWPSRF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-		<!-- Header -->
+		<!-- Header depreciated
 			<header id="header">
 				<a href="index.html" class="title">
 					<img src="../assets/images/logo_primary.jpg" alt="Roma Mart Logo" class="logo" />
@@ -41,37 +43,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<li><a href="index.html#three"><i class="fa-solid fa-phone"></i> Get in Touch</a></li>
 					</ul>
 				</nav>
-			</header>
-
-			<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<!-- Add the logo -->
-					<div class="logo-container">
-						<a href="index.html">
-							<img src="../assets/images/logo_primary.jpg" alt="Roma Mart Logo" class="logo" />
-						</a>
-					</div>
-					<nav>
-						<ul>
-							<li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-							<li><a href="blogpage.html"><i class="fa-solid fa-newspaper"></i> Updates</a></li>
-							<li><a href="index.html#three"><i class="fa-solid fa-phone"></i> Get in Touch</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+			</header> -->
+			<!-- Sidebar  -->
+			 <div id="sidebar"></div>
+			 <!-- Sidebar Overlay -->
+<div id="sidebar-overlay"></div>
+			<!-- Menu Button -->
+<div id="menu-button">
+    <img src="../assets/images/apple-touch-icon.png" alt="Logo" class="menu-logo" />
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+			
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Updates from the Roma Mart family</h1>
-							<!-- <span class="image fit"><img src="/assets/images/logo_framework.jpg" alt="" /></span> add main image here -->
-							<p>Welcome to our blog! Stay tuned for the latest updates, news, and announcements from Roma Mart.</p>
-						</div>
+					<section id="one" class="wrapper style2 spotlights">
+    					<section>
+        					<a href="#" class="image"><img src="../assets/images/hello.png" alt="" data-position="center center" /></a>
+        					<div class="content">
+            					<div class="inner">
+                					<h2>Updates from the Roma Mart family</h2>
+                					<p>Welcome to our blog! Stay tuned for the latest updates, news, and announcements from Roma Mart.</p>
+                					<ul class="actions">
+                    					<li><a href="#latest-post" class="button">Read Latest Updates</a></li>
+                					</ul>
+            					</div>
+        					</div>
+    					</section>
 					</section>
 					<section id="main" class="wrapper">
     					<div class="inner">
@@ -117,5 +121,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/blog.js"></script>
-	</body>
+			<script src="assets/js/sidebar.js"></script>
+		</body>
 </html>
