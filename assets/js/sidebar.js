@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Hide sidebar
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
+            document.body.classList.remove('sidebar-active'); // Remove class from body
             sidebar.style.transform = 'translateY(-100%)';
             sidebar.style.opacity = '0';
             setTimeout(() => {
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Show sidebar
             sidebar.classList.add('active');
             overlay.classList.add('active');
+            document.body.classList.add('sidebar-active'); // Add class to body
             sidebar.style.display = 'block';
             setTimeout(() => {
                 sidebar.style.transform = 'translateY(0)';
@@ -75,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.addEventListener('click', function () {
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
+        document.body.classList.remove('sidebar-active'); // Remove class from body
         sidebar.style.transform = 'translateY(-100%)';
         sidebar.style.opacity = '0';
         setTimeout(() => {
@@ -87,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (sidebar.classList.contains('active')) {
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
+            document.body.classList.remove('sidebar-active'); // Remove class from body
             sidebar.style.transform = 'translateY(-100%)';
             sidebar.style.opacity = '0';
             setTimeout(() => {
@@ -153,6 +157,11 @@ function getSidebarContent() {
             </div>
         `,
     };
+
+    // Check if the current page is a blog post (e.g., post1.html, post2.html, etc.)
+    if (page.startsWith('post') && page.endsWith('.html')) {
+        return sidebars['blogpage.html']; // Use the same sidebar as blogpage.html
+    }
 
     // Return the sidebar content for the current page, or a default sidebar
     return sidebars[page] || `

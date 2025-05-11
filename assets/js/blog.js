@@ -3,9 +3,16 @@ const blogPosts = [
     {
         title: "Coming Soon!",
         excerpt: "Get ready, Sarnia! Roma Mart is opening soon at 189 Wellington Street! 🏪",
-        image: "assets/images/logo-framework.jpg",
+        image: "assets/images/logo_framework.jpg",
         link: "blogposts/post1.html",
         date: "2025-02-12"
+    },
+    {
+        title: "Community Survey",
+        excerpt: "We want to hear from you! Please take a moment to fill out our community survey.",
+        image: "assets/images/logo_structure.jpg",
+        link: "blogposts/post2.html",
+        date: "2025-05-10"
     },
 //    <-- Add more blog posts here -->
 ];

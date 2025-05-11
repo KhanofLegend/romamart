@@ -2654,7 +2654,9 @@ input, select, textarea {
 		}
 
 			.image.fit img {
-				width: 100%;
+				width: 100%; /* Ensures the image fits the container */
+				height: auto; /* Maintains the aspect ratio */
+				display: block; /* Removes inline spacing issues */
 			}
 
 		.image.main {
@@ -4510,5 +4512,33 @@ input, select, textarea {
 
     #sidebar.active + #footer {
         margin-left: 18em; /* Shift footer to the right when sidebar is active */
+    }
+}
+
+/* When the sidebar is active on larger screens */
+body.sidebar-active #wrapper {
+    margin-left: 18em; /* Match the sidebar width */
+    transition: margin-left 0.3s ease; /* Smooth transition */
+}
+
+/* For smaller screens, no margin adjustment */
+@media screen and (max-width: 1280px) {
+    body.sidebar-active #wrapper {
+        margin-left: 0;
+    }
+}
+
+/* Adjust header and footer when the sidebar is active */
+body.sidebar-active #header,
+body.sidebar-active #footer {
+    margin-left: 18em; /* Match the sidebar width */
+    transition: margin-left 0.3s ease;
+}
+
+/* For smaller screens, no margin adjustment for header and footer */
+@media screen and (max-width: 1280px) {
+    body.sidebar-active #header,
+    body.sidebar-active #footer {
+        margin-left: 0;
     }
 }
