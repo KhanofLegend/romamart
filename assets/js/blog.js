@@ -1,20 +1,20 @@
 // Blog posts data
 const blogPosts = [
     {
+        title: "Community Survey",
+        excerpt: `We want to hear from you! Please take a moment to fill out our community survey. <a href="https://forms.gle/butQ53RDeFPJq36L9" target="_blank" class="button default">Take the Survey</a>`,
+        image: "assets/images/logo_structure.jpg",
+        link: "blogposts/post2.html",
+        date: "2025-05-10"
+    },
+    {
         title: "Coming Soon!",
         excerpt: "Get ready, Sarnia! Roma Mart is opening soon at 189 Wellington Street! 🏪",
         image: "assets/images/logo_framework.jpg",
         link: "blogposts/post1.html",
         date: "2025-02-12"
     },
-    {
-        title: "Community Survey",
-        excerpt: "We want to hear from you! Please take a moment to fill out our community survey.",
-        image: "assets/images/logo_structure.jpg",
-        link: "blogposts/post2.html",
-        date: "2025-05-10"
-    },
-//    <-- Add more blog posts here -->
+    // <-- Add more blog posts here -->
 ];
 
 // Load the latest post
@@ -36,23 +36,26 @@ let postsPerPage = 5;
 let currentPage = 1;
 
 function loadOlderPosts() {
-    const startIndex = currentPage * postsPerPage;
+    const startIndex = 1 + (currentPage - 1) * postsPerPage; // Adjust for the first post
     const endIndex = startIndex + postsPerPage;
-    const olderPosts = blogPosts.slice(1).slice(startIndex, endIndex); // Get older posts
-    let olderPostsHTML = "";
+    const olderPosts = blogPosts.slice(startIndex, endIndex); // Get older posts
+    let olderPostsHTML = '<div class="grid-container">';
     olderPosts.forEach(post => {
         olderPostsHTML += `
-            <article style="margin-top: 2em;">
-                <h3>${post.title}</h3>
-                <span class="image fit"><img src="${post.image}" alt="${post.title}" /></span>
-                <a href="${post.link}" class="button small">Read More</a>
-            </article>
+            <div class="grid-item">
+                <article>
+                    <h3>${post.title}</h3>
+                    <span class="image fit"><img src="${post.image}" alt="${post.title}" /></span>
+                    <a href="${post.link}" class="button small">Read More</a>
+                </article>
+            </div>
         `;
     });
+    olderPostsHTML += '</div>';
     document.getElementById("older-posts").innerHTML += olderPostsHTML;
 
     // Hide "Show More" button if no more posts
-    if (endIndex >= blogPosts.length - 1) {
+    if (endIndex >= blogPosts.length) {
         document.getElementById("show-more-container").style.display = "none";
     }
 }

@@ -4592,3 +4592,68 @@ body.sidebar-active #footer {
         margin-left: 0;
     }
 }
+
+/* Grid Container */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1.5em; /* Space between grid items */
+    margin-top: 2em;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Scoped styling for blog post pages */
+.post-page .inner {
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the content */
+    padding: 2em 1em; /* Add padding for spacing */
+    text-align: justify; /* Justify text for a cleaner look */
+}
+
+.post-page .post-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.post-page .post-content p {
+    line-height: 1.8; /* Improve readability with better line spacing */
+    margin-bottom: 1.5em; /* Add spacing between paragraphs */
+}
+
+.post-page .post-content .button.large {
+    display: block;
+    width: fit-content;
+    margin: 1em auto; /* Center the button */
+    padding: 0.8em 2em;
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments for post pages */
+@media (max-width: 768px) {
+    .post-page .inner {
+        padding: 1.5em 1em;
+    }
+
+    .post-page .post-title {
+        font-size: 1.8em;
+    }
+
+    .post-page .post-content p {
+        font-size: 1em;
+    }
+}
