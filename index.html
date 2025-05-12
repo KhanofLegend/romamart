@@ -148,45 +148,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<h2>Get in touch</h2>
 							<p>Have a question or suggestion? Want to collaborate or supply your product at Roma Mart? We'd love to hear from you.</p>
 							<div class="split style1">
-								<section>
+								<!-- Form Section -->
+								<div class="form-section">
 									<form action="https://api.web3forms.com/submit" method="POST">
-										<!-- Replace with your Access Key -->
-    <input type="hidden" name="access_key" value="e4a0fd98-2ea3-4d6c-8449-346b6097c7dc"
+										<!-- Web3Forms Access Key -->
+										<input type="hidden" name="access_key" value="e4a0fd98-2ea3-4d6c-8449-346b6097c7dc">
+										
+										<!-- Honeypot Spam Protection -->
+										<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+										
 										<div class="fields">
 											<div class="field half">
 												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
+												<input type="text" name="name" id="name" required />
 											</div>
 											<div class="field half">
 												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
+												<input type="email" name="email" id="email" required />
 											</div>
 											<div class="field">
 												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
+												<textarea name="message" id="message" rows="5" required></textarea>
 											</div>
-											<!-- Honeypot Spam Protection -->
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-    <!-- Custom Confirmation / Success Page -->
-    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
-											<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-											</ul>
 										</div>
-										
+										 <!-- Custom Confirmation / Success Page -->
+    												<!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+										<!-- Submit Button -->
+										<ul class="actions">
+											<li><button type="submit" class="button submit">Send Message</button></li>
+										</ul>
 									</form>
-								</section>
-								<section>
+								</div>
+
+								<!-- Address/Social Section -->
+								<div class="info-section">
 									<ul class="contact">
 										<li>
 											<h3><i class="fa-solid fa-map-marker-alt"></i> Address</h3>
 											<a href="geo:0,0?q=189-3 Wellington Street, Sarnia, ON N7T 1G6, Canada"
-											onclick="window.open('https://www.google.com/maps/search/?api=1&query=42.9685845%2C-82.4078779&query_place_id=ChIJCfo3t6SdJYgRIQVbpCppKmY', '_blank'); return false;">
-											189-3 Wellington Street<br />
-											Sarnia, ON N7T 1G6<br />
-											Canada
-										</a>
+											   onclick="window.open('https://www.google.com/maps/search/?api=1&query=42.9685845%2C-82.4078779&query_place_id=ChIJCfo3t6SdJYgRIQVbpCppKmY', '_blank'); return false;">
+												189-3 Wellington Street<br />
+												Sarnia, ON N7T 1G6<br />
+												Canada
+											</a>
 										</li>
 										<li>
 											<h3><i class="fa-solid fa-envelope"></i> Email</h3>
@@ -203,10 +207,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 												<li><a href="#" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
-											   <li><a href="#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
-											</li>
+												<li><a href="#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+											</ul>
+										</li>
 									</ul>
-								</section>
+								</div>
 							</div>
 							<div class="map-container" style="margin-top: 2em;">
   								  <iframe 
