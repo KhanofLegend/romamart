@@ -3306,12 +3306,30 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-image: url('../assets/images/pattern.jpg'); /* Replace with your image path */
-			background-size: cover; /* Ensure the image covers the entire section */
-			background-position: center; /* Center the image */
-			background-repeat: no-repeat; /* Prevent tiling */
+			position: relative; /* Ensure the pseudo-element is positioned correctly */
+			background-image: url('/assets/images/pattern.jpg')!important; /* Adjusted to an absolute path */ /* Replace with your image path */
+			background-size: cover !important; /* Ensure the image covers the entire section */
+			background-position: center !important; /* Center the image */
+			background-repeat: no-repeat !important; /* Prevent tiling */
 			color: #ffffff; /* White text for contrast */
 		}
+
+		.wrapper.style1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)); /* rgba(0, 0, 0, 0.5); */ /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure it sits above the background image */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.wrapper.style1 > * {
+    position: relative;
+    z-index: 2; /* Ensure content sits above the overlay */
+}
 
 		.wrapper.style1-alt {
 			background-color: #493382;
@@ -3434,6 +3452,35 @@ input, select, textarea {
 		body.is-preload .wrapper.fade > .inner {
 			opacity: 0;
 		}
+
+/* Updates Container */
+
+.updates-container {
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+    background-image: url('/assets/images/pattern.jpg'); /* Use the same image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    color: #ffffff; /* White text for contrast */
+    padding: 3em 2em; /* Add padding for spacing */
+}
+
+.updates-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Darker overlay */
+    z-index: 1; /* Ensure it sits above the background image */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.updates-container > * {
+    position: relative;
+    z-index: 2; /* Ensure content sits above the overlay */
+}
 
 /* Header */
 
