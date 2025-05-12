@@ -188,3 +188,34 @@
 			});
 
 })(jQuery);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const floatingButton = document.getElementById("floating-order-button");
+    const orderButton = document.querySelector(".actions .button.scrolly"); // "Order Online" button on index.html
+
+    function isElementInViewport(el) {
+        if (!el) return false; // If the element doesn't exist, return false
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function toggleFloatingButton() {
+        if (orderButton && isElementInViewport(orderButton)) {
+            floatingButton.style.display = "none"; // Hide the floating button
+        } else {
+            floatingButton.style.display = "block"; // Show the floating button
+        }
+    }
+
+    // Check visibility on scroll and resize
+    window.addEventListener("scroll", toggleFloatingButton);
+    window.addEventListener("resize", toggleFloatingButton);
+
+    // Initial check
+    toggleFloatingButton();
+});
